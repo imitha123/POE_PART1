@@ -20,7 +20,6 @@ namespace POE_PART1
             Console.WriteLine("Hi " + name_validation() + ", Welcome to SuperBot");
             ascii_art my_ascii_art = new ascii_art();
             Console.WriteLine("*************************************");
-            my_ascii_art.dispaly_art();
         }
 
 
@@ -45,20 +44,21 @@ namespace POE_PART1
             {
                     while (name.Length <= 2 || !Regex.IsMatch(name, @"^[a-zA-Z]+$"))
                     {
-                    if(name.Length <= 2)
+                    // loop through if the name is less than 2 characters or contains non-letter characters
+                    if (name.Length <= 2)
                     {
                         Console.WriteLine("Incorrect, User name can't be less than 2 characters!");
                         Console.Write("Please try again >> ");
                         name = Console.ReadLine();
                     }
-
+                    // loop through if the name contains non-letter characters
                     if (!Regex.IsMatch(name, @"^[a-zA-Z]+$"))
                     {
                         Console.WriteLine("Incorrect, User name should only contain letters!");
                         Console.Write("Please try again >> ");
                         name = Console.ReadLine();
                     }
-
+                    // loop through if the name is empty
                     if (String.IsNullOrEmpty(name))
                         {
                             Console.WriteLine("Incorrect, User name can't empty!");
@@ -133,6 +133,7 @@ namespace POE_PART1
             }
             if (found.Equals(false))
             {
+                // loop through the split array to check for two-word phrases
                 for (int i = 0; i < split_function(question).Length - 1; i++)
                 {
                     string phrase = split_function(question)[i] + " " + split_function(question)[i + 1];
