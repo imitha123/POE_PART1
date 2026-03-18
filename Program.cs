@@ -7,7 +7,7 @@ namespace POE_PART1
     {
         static void Main(string[] args)
         {
-            // object instance creations
+            // object instance creations and evoking methods
             greeting_voice system_voice = new greeting_voice();
 
             ascii_art my_ascii_art = new ascii_art();

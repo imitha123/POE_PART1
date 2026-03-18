@@ -9,8 +9,8 @@ namespace POE_PART1
         // global variable
         string name;
 
-        // my contructor
-       public void prompt()
+        // prompt method
+        public void prompt()
         {
             //prompt the user
             Console.Write("Kindly give me your name please >> ");
@@ -109,6 +109,7 @@ namespace POE_PART1
         // expected keys from the split array
         public void expected_keys(string question)
         {
+            // my dictionary
           Dictionary<string,string> answer = new Dictionary<string,string>();
 
             answer.Add("hi", "Hello!");
