@@ -18,6 +18,7 @@ namespace POE_PART1
             string record = Path.Combine(recordPath, "Recording.wav");
             play_voice(record);
         }
+        // method to play the voice recording
         public void play_voice(string voice)
         {
             // error handling
@@ -29,6 +30,7 @@ namespace POE_PART1
                 }
 
             }
+            // if the file is not found or any other error occurs, it will be caught here
             catch (Exception e)
             {
                 WriteLine($"{e.Message}");
