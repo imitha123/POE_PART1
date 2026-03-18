@@ -13,10 +13,13 @@ namespace POE_PART1
         public void prompt()
         {
             //prompt the user
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.Write("Kindly give me your name please >> ");
-              name = Console.ReadLine();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            name = Console.ReadLine();
 
             // greet the user
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Hi " + name_validation() + ", Welcome to SuperBot");
             ascii_art my_ascii_art = new ascii_art();
             Console.WriteLine("*************************************");
@@ -33,8 +36,11 @@ namespace POE_PART1
                 // loop through if the name is empty
                 while (String.IsNullOrEmpty(name))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Incorrect, the name can't be empty!");
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.Write("Please try again >> ");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     name = Console.ReadLine();
 
                 }
@@ -47,24 +53,33 @@ namespace POE_PART1
                     // loop through if the name is less than 2 characters or contains non-letter characters
                     if (name.Length <= 2)
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Incorrect, User name can't be less than 2 characters!");
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.Write("Please try again >> ");
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                         name = Console.ReadLine();
                     }
                     // loop through if the name contains non-letter characters
                     if (!Regex.IsMatch(name, @"^[a-zA-Z]+$"))
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Incorrect, User name should only contain letters!");
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.Write("Please try again >> ");
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                         name = Console.ReadLine();
                     }
                     // loop through if the name is empty
                     if (String.IsNullOrEmpty(name))
                         {
-                            Console.WriteLine("Incorrect, User name can't empty!");
-                            Console.Write("Please try again >> ");
-                            name = Console.ReadLine();
-                            Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Incorrect, User name can't empty!");
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.Write("Please try again >> ");
+                        name = Console.ReadLine();
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine();
                         }
 
                     }
@@ -112,7 +127,7 @@ namespace POE_PART1
             // my dictionary
           Dictionary<string,string> answer = new Dictionary<string,string>();
 
-            answer.Add("hi", "Hello!");
+            answer.Add("who are you","My name is SuperBot and I am a Cybersecurity Awareness Bot");
             answer.Add("how", "I am good thanks for asking!");
             answer.Add("purpose", "My purpose is to assist with any CyberSecurity related questions.");
             answer.Add("ask", "You can ask me about Password Safety, Phishing and Safe Browsing.");
@@ -146,6 +161,19 @@ namespace POE_PART1
                         found = true;
                     }
                 }
+
+                for (int i = 0; i < split_function(question).Length - 1; i++)
+                {
+                    string phrase = split_function(question)[i] + " " + split_function(question)[i + 1] + " " + split_function(question)[i + 2];
+
+                    if (answer.ContainsKey(phrase))
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.Write(answer[phrase]);
+                        found = true;
+                    }
+                }
+
 
                 if (found.Equals(false))
                 {
