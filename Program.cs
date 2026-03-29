@@ -9,7 +9,7 @@ namespace POE_PART1
         {
             // object instance creations and evoking methods
             greeting_voice system_voice = new greeting_voice();
-
+            // calling methods
             ascii_art my_ascii_art = new ascii_art();
             my_ascii_art.dispaly_art();
 
