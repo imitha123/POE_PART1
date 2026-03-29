@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace POE_PART1
 {
@@ -99,6 +100,7 @@ namespace POE_PART1
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 string question = Console.ReadLine().ToLower();
 
+                // if the user wants to exit the program
                 if (question.Equals("exit"))
                 {
                     Console.ResetColor();
@@ -127,13 +129,13 @@ namespace POE_PART1
             // my dictionary
           Dictionary<string,string> answer = new Dictionary<string,string>();
 
-            answer.Add("who are you","My name is SuperBot and I am a Cybersecurity Awareness Bot");
+
             answer.Add("how", "I am good thanks for asking!");
             answer.Add("purpose", "My purpose is to assist with any CyberSecurity related questions.");
             answer.Add("ask", "You can ask me about Password Safety, Phishing and Safe Browsing.");
             answer.Add("phishing", "Phishing is a type of cyber attack where someone tries to trick you into giving away sensitive information like passwords, bank details, or personal data.");
-            answer.Add("password safety", "Password safety is the practice of creating, managing, and protecting your passwords so that unauthorized people (like hackers) can’t access your accounts.");
-            answer.Add("safe browsing", "Safe browsing means using the internet in a way that protects you from threats like scams, malware, and data theft.");
+            answer.Add("password", "Password safety is the practice of creating, managing, and protecting your passwords so that unauthorized people (like hackers) can’t access your accounts.");
+            answer.Add("browsing", "Safe browsing means using the internet in a way that protects you from threats like scams, malware, and data theft.");
 
             bool found = false;
 
@@ -141,47 +143,28 @@ namespace POE_PART1
             {
                 if (answer.ContainsKey(e))
                 {
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.Write(answer[e]);
-                    found = true;
+                    //Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    //Console.Write(answer[e]);
+                    //found = true;
+
+                    foreach (char letter in answer[e])
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.Write(letter);
+                        Thread.Sleep(40); // Adjust the delay as needed
+                        found = true;
+                    }
                 }
 
             }
+            // if the quesion is not in the dictionary, ask the user to rephrase
             if (found.Equals(false))
-            {
-                // loop through the split array to check for two-word phrases
-                for (int i = 0; i < split_function(question).Length - 1; i++)
-                {
-                    string phrase = split_function(question)[i] + " " + split_function(question)[i + 1];
-
-                    if (answer.ContainsKey(phrase))
-                    {
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.Write(answer[phrase]);
-                        found = true;
-                    }
-                }
-
-                for (int i = 0; i < split_function(question).Length - 1; i++)
-                {
-                    string phrase = split_function(question)[i] + " " + split_function(question)[i + 1] + " " + split_function(question)[i + 2];
-
-                    if (answer.ContainsKey(phrase))
-                    {
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.Write(answer[phrase]);
-                        found = true;
-                    }
-                }
-
-
-                if (found.Equals(false))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write("I didn't quite understand that. Could you rephrase?");
                 }
               
-            }
+            
 
             Console.ResetColor();
         }
