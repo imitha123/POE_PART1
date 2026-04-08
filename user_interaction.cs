@@ -126,8 +126,8 @@ namespace POE_PART1
         // expected keys from the split array
         public void expected_keys(string question)
         {
-            // my dictionary
-          Dictionary<string,string> answer = new Dictionary<string,string>();
+            // my dictionary with all expected keys and their corresponding answers
+            Dictionary<string,string> answer = new Dictionary<string,string>();
 
 
             answer.Add("how", "I am good thanks for asking!");
