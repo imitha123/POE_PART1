@@ -11,9 +11,9 @@ namespace POE_PART1
             greeting_voice system_voice = new greeting_voice();
             // calling methods
             ascii_art my_ascii_art = new ascii_art();
+            //call the method to display the ascii art
             my_ascii_art.dispaly_art();
             // calling the method to play the voice
-
             user_interaction user_interact = new user_interaction();
             user_interact.prompt();
             user_interact.response_method();
