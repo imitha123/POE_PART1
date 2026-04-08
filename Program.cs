@@ -12,6 +12,7 @@ namespace POE_PART1
             // calling methods
             ascii_art my_ascii_art = new ascii_art();
             my_ascii_art.dispaly_art();
+            // calling the method to play the voice
 
             user_interaction user_interact = new user_interaction();
             user_interact.prompt();

@@ -163,8 +163,6 @@ namespace POE_PART1
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write("I didn't quite understand that. Could you rephrase?");
                 }
-              
-            
 
             Console.ResetColor();
         }
