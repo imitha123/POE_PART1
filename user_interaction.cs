@@ -15,7 +15,7 @@ namespace POE_PART1
         {
             //prompt the user
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.Write("Kindly give me your name please >> ");
+            Console.Write("Please enter your name please >> ");
             Console.ForegroundColor = ConsoleColor.Yellow;
             name = Console.ReadLine();
 
