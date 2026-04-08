@@ -24,6 +24,7 @@ namespace POE_PART1
             // error handling
             try
             {
+                // use the sound player class to play the recording
                 using (SoundPlayer speechObj = new SoundPlayer(voice))
                 {
                     speechObj.PlaySync();
@@ -33,6 +34,7 @@ namespace POE_PART1
             // if the file is not found or any other error occurs, it will be caught here
             catch (Exception e)
             {
+                // error message will be displayed in the console
                 WriteLine($"{e.Message}");
 
             }
